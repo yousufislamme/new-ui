@@ -1,0 +1,19 @@
+{
+  "name": "new-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "new-ui": "./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "this is a new-ui package for javaScript framework",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
+}
