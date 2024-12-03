@@ -8,8 +8,10 @@
   "bin": {
     "mdyousufislam": "./index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "UI"
+  ],
+  "author": "Yousuf",
   "license": "ISC",
   "description": "this is a mdyousufislam package for javaScript framework",
   "dependencies": {

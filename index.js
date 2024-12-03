@@ -24,27 +24,56 @@ program
          return;
       }
 
-      const componentTemplate = `
+      // Define templates for each component
+      const templates = {
+         button: `
 import React from 'react';
 
-const ${component.charAt(0).toUpperCase() + component.slice(1)} = () => {
+const Button = ({ label, onClick }) => {
   return (
-    <button className="btn">
-      This is a ${component} component.
+    <button 
+      className="btn"
+      onClick={onClick}
+    >
+      {label || 'Default Button'}
     </button>
   );
 };
 
-export default ${component.charAt(0).toUpperCase() + component.slice(1)};
-`;
+export default Button;
+`,
+         card: `
+import React from 'react';
 
-      const targetPath = path.join(process.cwd(), `${component}.js`);
+const Card = ({ title, content }) => {
+  return (
+    <div className="card">
+      <h2>{title || 'Default Title'}</h2>
+      <p>{content || 'Default Content'}</p>
+    </div>
+  );
+};
 
-      fs.writeFileSync(targetPath, componentTemplate);
+export default Card;
+`
+      };
 
-      console.log(
-         chalk.green(`Component "${component}" has been created at ${targetPath}`)
-      );
+      const componentName = component.charAt(0).toUpperCase() + component.slice(1);
+      const componentTemplate = templates[component];
+
+      // Target directory
+      const targetPath = path.join(process.cwd(), `${componentName}.js`);
+
+      try {
+         fs.writeFileSync(targetPath, componentTemplate);
+         console.log(
+            chalk.green(`Component "${componentName}" has been created at ${targetPath}`)
+         );
+      } catch (error) {
+         console.error(
+            chalk.red(`Failed to create component "${componentName}": ${error.message}`)
+         );
+      }
    });
 
 program.parse(process.argv);
