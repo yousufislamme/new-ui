@@ -8,7 +8,7 @@ const path = require('path');
 const program = new Command();
 
 program
-   .name('new-ui')
+   .name('easy-ui')
    .description('A CLI tool to add components to React/Next.js projects')
    .version('1.0.0');
 
